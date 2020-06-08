@@ -93,15 +93,15 @@ Auto encoders are deep neural networks used to determine a **compressed version*
 
 ![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/encoder.png)
 
-One important property of an autoencoder is that they are data-specific, which means that they will only be able to compress data similar to what they have been trained on. This is why our hold-out cross validation set consists only of landscape images, as those are the ones our convolutional autoencoder had trained on. 
+One important property of an autoencoder is that they are **data-specific, which means that they will only be able to compress data similar to what they have been trained on.** This is why our hold-out cross validation set consists only of landscape images, as those are the ones our convolutional autoencoder had trained on. 
 
 Since we are dealing with images, we have used a deep convolutional autoencoder having two main layers : 
 
-* Convolution layer : A convolution is a simple application of a filter to an input that results in an activation. Using convolving filters of the size (3,3), we extract useful features from an image to be colored. By adding an ‘additional’ stride component, the images are downsampled from their original dimensions. 
+* **Convolution layer** : A convolution is a simple application of a filter to an input that results in an activation. Using convolving filters of the size (3,3), we extract useful features from an image to be colored. By adding an ‘additional’ stride component, the images are downsampled from their original dimensions. 
 
 ![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/convolution.png) 
 
-* Upsampling layer : This is applied in the decoder section once we start reconstructing the image, after the encoder has extracted all the useful features. Upsampling simply results in doubling the dimensions of the input. 
+* **Upsampling layer** : This is applied in the decoder section once we start reconstructing the image, after the encoder has extracted all the useful features. Upsampling simply results in doubling the dimensions of the input. 
 
 ![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/upsampling_nearest_neighbour.png) 
 
@@ -131,32 +131,32 @@ The RAM availability for the whole project was roughly around **12 GB** using a 
 
 Following were the results obtained on the **hold-out cross validation set** : 
 
-**Initial results** : 
+#### **Initial results** : 
 
-Result 01 
+Initial result 01 
 
 ![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/initial_result_02.jpg) 
 
-Result 02 
+Initial result 02 
 
 ![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/initial_result_03.jpg)
 
 
-**Final results in 224p** : 
+#### **Final results in 224p** : 
 
-Result 01
+Final result 01
 
 ![](https://github.com/CodingWitcher/reverse-oldification/blob/master/results_in_224p/final_result_02.jpg) 
 
-Result 02 
+Final result 02 
 
 ![](https://github.com/CodingWitcher/reverse-oldification/blob/master/results_in_224p/lighthouse.png)
 
-Result 03
+Final result 03
 
 ![](https://github.com/CodingWitcher/reverse-oldification/blob/master/results_in_224p/waterbody.png) 
 
-Result 04 
+Final result 04 
 
 ![](https://github.com/CodingWitcher/reverse-oldification/blob/master/results_in_224p/sea3.png)
 
