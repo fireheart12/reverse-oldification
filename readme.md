@@ -54,7 +54,7 @@ Is a progress bar library with good support for nested loops and Jupyter noteboo
 
 ### Rescaling : 
 
-All the images of the data set will be resized to 224 X 224 dimensions. This is in accordance with the input size expected by the neural network architecture(encoder).
+All the images of the data set will be resized to **224 X 224 dimensions**. This is in accordance with the input size expected by the neural network architecture(encoder).
 
 ### Batch Size : 
 
@@ -62,13 +62,13 @@ Instead of feeding the whole set of 3000+ images to our deep learning model in o
 
 ### Image augmentation : 
 
-ImageDataGenerator, a Tensorflow image pre-processing deep learning module is used for this cumbersome task. Using ImageDataGenerator, we rescale each image in our data set, so that the value of each pixel lies in the range of 0-1, instead of 0-255. This rescaling aids our subsequent deep learning model to converge faster as the skewness of the overall data distribution is tremendously reduced, thereby expediting the gradient descent operation. Moreover, an additional parameter known as ‘validation_split’ is also passed, which segregates a small fraction of images for cross-validation(after the model is trained on the training data set). 
+**ImageDataGenerator**, a Tensorflow image pre-processing deep learning module is used for this cumbersome task. Using ImageDataGenerator, **we rescale each image in our data set, so that the value of each pixel lies in the range of 0-1, instead of 0-255.** This rescaling aids our subsequent deep learning model to converge faster as the **skewness** of the overall data distribution is tremendously reduced, thereby expediting the gradient descent operation. Moreover, an additional parameter known as ‘validation_split’ is also passed, which segregates a small fraction of images for cross-validation(after the model is trained on the training data set). 
 
 ### Helper function design : 
 
 Helper functions such as convert_lab(for converting an RGB image into LAB format using skimage library), convert_rgb(for converting the constructed LAB image, after A and B channels are predicted, into RGB format using skimage image pre-processing library), and plot_image(for displaying an image) are designed.
 
-Lab  is a color space that completely separates the lightness from color. Think of lightness as some sort of grayscale image, it only has luminosity but, no colors at all. channel L is responsible for that lightness (grayscale) and the other two channels ab are responsible for the colors. as you can see in the images below the color information is embedded in the ab channel. 
+*Lab  is a color space that completely separates the lightness from color. Think of lightness as some sort of grayscale image, it only has luminosity but, no colors at all. channel L is responsible for that lightness (grayscale) and the other two channels ab are responsible for the colors. as you can see in the images below the color information is embedded in the ab channel.* 
 
 The channels are shown below :
 
@@ -80,7 +80,7 @@ Following shows an **RGB** image along with the L-channel extracted from the ***
 
 ### Preparing the Numpy arrays : 
 
-The training and validation numpy array are created. All the images in the training set are loaded one after the other, and are subsequently converted into LAB format. The x_train list contains the ‘L’ channel of our LAB image, whereas y_train contains the ‘A’ and ‘B’ channels. Same goes for x_val and y_val. Finally the list is converted into a numpy array, as they are the input type desired by Tensorflow.
+The training and validation numpy array are created. All the images in the training set are loaded one after the other, and are subsequently converted into LAB format. The **x_train list** contains the **‘L’ channel of our LAB image**, whereas y_train contains the **‘A’ and ‘B’ channels**. Same goes for x_val and y_val. Finally the list is converted into a numpy array, as they are the input type desired by Tensorflow.
 * The shape of x_train observed is (3680, 224, 224) signifying that this 3-D tensor contains 3680 images, where each image has a dimension of 224 X 224. This makes sense as earlier we rescaled all the images to 224 X 224. Moreover, as the training set contains only the ‘L’ channel, therefore each image has only dimension(depth wise). 
 
 * The shape of x_val observed is (3680, 224, 224, 2) signifying that this 3-D tensor contains 3680 images, where each image has a dimension of 224 X 224 along with depth 2. This is because both ‘a’ and ‘b’ channels of the Lab image are incorporated in the x_val tensor. All the images in a and b are 224 X 224, and they are stacked together in x_val, imparting the shape an overall depth of two. 
@@ -89,7 +89,7 @@ The training and validation numpy array are created. All the images in the train
 
 #### (V) Deep Convolutional Auto Encoder : 
 
-Auto encoders are deep neural networks used to determine a compressed version of the input data with the lowest amount of loss in information. The concept of PCA(Principal Component Analysis) is to find the best and relevant parameters for training of a model where the dataset has a huge number of parameters. An autoencoder works in a similar fashion. The encoder part of the architecture breaks down the input data into a compressed version ensuring that important data is not lost but the overall size of the data is significantly reduced. This concept is called Dimensionality reduction.  
+Auto encoders are deep neural networks used to determine a **compressed version** of the input data with the lowest amount of loss in information. The concept of PCA(Principal Component Analysis) is to find the best and relevant parameters for training of a model where the dataset has a huge number of parameters. An autoencoder works in a similar fashion. **The encoder part of the architecture breaks down the input data into a compressed version ensuring that important data is not lost but the overall size of the data is significantly reduced. This concept is called Dimensionality reduction. **  
 
 ![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/encoder.png)
 
@@ -105,13 +105,13 @@ Since we are dealing with images, we have used a deep convolutional autoencoder 
 
 ![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/upsampling_nearest_neighbour.png) 
 
-VGG net 16 has been used for our encoder to obtain high accuracy in the feature extraction process. The architecture of VGG-16 is such that it takes an input of size 224 X 224 X 3(hence, the image resizing in pre-processing), and outputs a softmax prediction over a thousand classes. As discussed above, this network also has immense stacking of convolving layers, and the last feature extraction layer results in an output of 7 X 7X 512. Hence, we will use these layers for feature extraction for our own encoder.
+**VGG net 16** has been used for our encoder to obtain high accuracy in the feature extraction process. The architecture of VGG-16 is such that it takes an input of size 224 X 224 X 3(hence, the image resizing in pre-processing), and outputs a softmax prediction over a thousand classes. As discussed above, this network also has immense stacking of convolving layers, and the last feature extraction layer results in an output of 7 X 7X 512. Hence, we will use these layers for feature extraction for our own encoder.
 
 Structure of VGG-16 deep learning architecture : 
 
 ![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/vgg16-1-e1542731207177.png) 
 
-(*Note that VGG 16 takes a three dimensional input, whereas we have only our L channel as input, which is one dimensional. Hence, in order to satisfy the need of this architecture, we will make our input 3-D by stacking the ‘L’ layer behind itself two more times, forming a total of three dimensions*)
+(*Note that VGG 16 takes a three dimensional input, whereas we have only our L channel as input, which is one dimensional. Hence, in order to satisfy the need of this architecture, **we will make our input 3-D by stacking the ‘L’ layer behind itself two more times, forming a total of three dimensions** *)
 
 In short what’s happening with our autoencoder model. The input image has only one channel, that is ‘L’(which is later stacked behind itself to give an impression of depth 3 in order to satisfy our encoder model), and output comprises two sets of predictions, that is ‘a’ and ‘b’ channel; which are then combined with the input ‘L’ to form a reconstructed Lab image. This Lab image is subsequently converted into an RGB image, by the convert_rgb() function earlier defined and displayed. 
 
@@ -129,12 +129,47 @@ The training process took roughly four- five hours to complete. The entire model
 
 The RAM availability for the whole project was roughly around **12 GB** using a free **Tesla K-80 GPU**. 
 
-Following were the results obtained on the hold-out cross validation set : 
+Following were the results obtained on the **hold-out cross validation set** : 
+
+**Initial results** : 
+
+Result 01 
+
+![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/initial_result_02.jpg) 
+
+Result 02 
+
+![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/initial_result_03.jpg)
 
 
+**Final results in 224p** : 
+
+Result 01
+
+![](https://github.com/CodingWitcher/reverse-oldification/blob/master/results_in_224p/final_result_02.jpg) 
+
+Result 02 
+
+![](https://github.com/CodingWitcher/reverse-oldification/blob/master/results_in_224p/lighthouse.png)
+
+Result 03
+
+![](https://github.com/CodingWitcher/reverse-oldification/blob/master/results_in_224p/waterbody.png) 
+
+Result 04 
+
+![](https://github.com/CodingWitcher/reverse-oldification/blob/master/results_in_224p/sea3.png)
 
 
+## (V) References :
 
+* **Colorful Image Colorization** - *by Richard Zhang, Phillip Isola, and Alexei A. Efros from University of California, Berkeley*  :
+
+https://arxiv.org/abs/1603.08511
+
+* **Colorization Using ConvNet and GAN** : *by Quiwen Fu, Wei-Ting Hsu and Mu-Heng Yang from Stanford University* : 
+
+https://www.semanticscholar.org/paper/Colorization-Using-ConvNet-and-GAN-Fu-Hsu/327f96c410ab390b2778ffb579d89632b210d337   
 
 
 
