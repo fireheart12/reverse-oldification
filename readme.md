@@ -119,6 +119,19 @@ In short what’s happening with our autoencoder model. The input image has only
 
 The **relu** activation has been used throughout the network’s architecture, however for the final layer, we have used **tanh** activation function. The reason is before preprocessing the ‘a’ and ‘b’ channel values were divided by 128 as the **range of both channels is in (-127, 128). Hence, by dividing the values, each pixel lies between (-1,1)**.  The mathematical “tanh” activation function outputs in the range of (-1, 1), therefore making it the ideal function of choice. 
 
+![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/sigmoid.png) 
+
+### (VI) Results obtained : 
+
+The model was trained on **3,680 images** for **1000 epochs**. An overall accuracy of **86.12%** was achieved by the model in coloring the images of dimension : (224, 224)
+
+The training process took roughly four- five hours to complete. The entire model was trained using **Google Collaboratory notebooks**, which are powerful GPU-enabled Jupyter notebooks supported by Google cloud. 
+
+The RAM availability for the whole project was roughly around **12 GB** using a free **Tesla K-80 GPU**. 
+
+Following were the results obtained on the hold-out cross validation set : 
+
+
 
 
 
