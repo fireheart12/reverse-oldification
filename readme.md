@@ -1,5 +1,7 @@
 # Reverse-Oldification Of Images
 
+![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/promo.jpg) 
+
 ## (I) Abstract : 
 Here we aim to study and implement a deep learning architecture revolving around the application of a neural network in order to rejuvenate black and white images, that is by colorizing them, and hence making them ‘alive’ again. Image restoration cum reconstruction has always been a topic of interest, with applications such as extracting useful information from the images of ancient historical artifacts(after reverse-oldifying it to increase the color channels and hence, the amount of information encapsulated), or even bringing a black and white snapshot from the 90s to this century(applications in entertainment industry), or colorizing the popular Mangas(Japanese comics), which are drawn without colors(mostly).  The heavy process has expedited with the advent of the modern deep-learning/Big Data era, where GPUs and TPUs are getting more and more powerful as time progresses, along with a massive surge in the amount of data available to learn from. 
 
