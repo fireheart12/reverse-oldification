@@ -15,7 +15,20 @@ The dataset is a result of seven researches from the website flickr containing r
 
 Flickr : https://www.flickr.com/ 
 
+Some sample images from landscape data set : 
+
 ![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/dataset_image01.jpg) 
 ![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/dataset_image02.jpg)
 ![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/dataset_image03.jpg)
 ![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/dataset_image04.jpg)
+
+This dataset containing 3000-4000 images is publicly hosted on Kaggle from where it’s downloaded and subsequently uploaded(after cleaning) on the following  google drive path:  
+
+https://drive.google.com/drive/folders/10FpGEaeEM2AROcP0zAJ8Oz1QmERD7ifB?usp=sharing    
+
+Kaggle link : https://www.kaggle.com/arnaud58/landscape-pictures# 
+
+## (III) Libraries used : 
+### Numpy : 
+
+Fundamental package for scientific computing in Python3, helping us in creating and managing n-dimensional tensors. A vector can be regarded as a 1-D tensor, matrix as 2-D, and so on.
