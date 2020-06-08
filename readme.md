@@ -14,3 +14,8 @@ The dataset is a result of seven researches from the website flickr containing r
 * Landscapes Japan(500+ pictures)
 
 Flickr : https://www.flickr.com/ 
+
+![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/dataset_image01.jpg) 
+![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/dataset_image02.jpg)
+![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/dataset_image03.jpg)
+![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/dataset_image04.jpg)
