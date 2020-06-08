@@ -32,3 +32,24 @@ Kaggle link : https://www.kaggle.com/arnaud58/landscape-pictures#
 ### Numpy : 
 
 Fundamental package for scientific computing in Python3, helping us in creating and managing n-dimensional tensors. A vector can be regarded as a 1-D tensor, matrix as 2-D, and so on.
+![](https://github.com/CodingWitcher/reverse-oldification/blob/master/images/tensor.jpeg) 
+
+### Matplotlib : 
+
+A Python3 plotting library used for data visualization.
+
+### SkImage : 
+
+Is an open source Python3 package designed for image processing.
+
+### Tensorflow : 
+
+Is an open source deep learning framework for dataflow and differentiable programming.  It’s created and maintained by Google. 
+
+### Tqdm : 
+
+Is a progress bar library with good support for nested loops and Jupyter notebooks.  
+
+## (IV) Image pre-processing : 
+
+
