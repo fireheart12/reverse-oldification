@@ -1,1 +1,1 @@
-This section contains the **Literature review** and **the project report**. 
+This section contains the **literature review** and the **project report**. 
